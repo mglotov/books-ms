@@ -2,8 +2,9 @@ FROM debian:jessie
 MAINTAINER Viktor Farcic "viktor@farcic.com"
 
 ENV VERSION 1.0
-ENV http_proxy 'http://10.230.143.15:3128'
-ENV https_proxy 'http://10.230.143.15:3128'
+ARG proxy
+ENV http_proxy "$proxy"
+ENV https_proxy "$proxy"
 ENV no_proxy localhost,127.0.0.1,10.100.198.200,10.100.198.201,10.100.198.202,10.100.198.203,cd,prod,logging,proxy,swarm-master,mesos-1,mesos-2,swarm-node-1,swarm-node-2,serv-disc-01,serv-disc-02,serv-disc-03
 
 RUN apt-get update
