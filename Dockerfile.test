@@ -48,6 +48,7 @@ ADD client/test.html /source/client/test.html
 ADD run_tests.sh /source/run_tests.sh
 
 # Dependencies
+ENV JAVA_OPTS="$JAVA_OPTS -Dhttp.proxyHost=10.230.143.15 -Dhttp.proxyPort=3128"
 RUN cd /source && sbt update
 RUN git config --global url."https://".insteadOf git:// && \
     cd /source/client && npm install && bower install --allow-root --config.interactive=false -s
